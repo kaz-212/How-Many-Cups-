@@ -1,0 +1,23 @@
+{
+  "name": "HowManyCups",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cups.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaz-212/How-Many-Cups-.git"
+  },
+  "keywords": [],
+  "author": "Karan Basu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaz-212/How-Many-Cups-/issues"
+  },
+  "homepage": "https://github.com/kaz-212/How-Many-Cups-#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

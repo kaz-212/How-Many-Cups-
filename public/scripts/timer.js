@@ -12,6 +12,7 @@ const buzz = document.querySelector('#buzz')
 const workBtn = document.querySelector('#work')
 const shortBtn = document.querySelector('#short')
 const longBtn = document.querySelector('#long')
+const editText = document.querySelector('#edit-text')
 
 class Timer {
   constructor(min = 25) {
@@ -91,17 +92,46 @@ class Timer {
       isStopped = true
     }
   }
+  editTime() {
+    timeDisplay.classList.add('none')
+    editText.classList.remove('none')
+    const timeDiv = document.querySelector('#time-box')
+    editText.id = 'edit-text'
+    editText.value = timeDisplay.innerHTML
+    editText.autofocus = true
+    timeDiv.append(editText)
+  }
+  unfocus() {
+    editText.classList.add('none')
+    timeDisplay.classList.remove('none')
+    const regMins = /(\d\d):/
+    const mins = regMins.exec(editText.value)
+    const regSecs = /:([0-5]\d)/
+    const secs = regSecs.exec(editText.value)
+    if (mins && secs) {
+      this.seconds = parseInt(secs[1])
+      this.minutes = parseInt(mins[1])
+      console.log(this.seconds)
+      timeDisplay.innerHTML = editText.value
+    } else {
+      timeDisplay.innerHTML = '25:00'
+    }
+  }
 }
 
 const timer = new Timer(25)
 
-const configureTimer = min => {
+const configureTimer = (min, sec = 0) => {
   timer.ultimateTime = min
-  timer.seconds = 0
+  timer.seconds = sec
   timer.minutes = min
-  timer.displaySeconds = 0
-  timer.displayMinutes = 0
-  timeDisplay.innerHTML = min + ':00'
+  // timer.displaySeconds = 0
+  // timer.displayMinutes = 0
+  if (min < 10) {
+    timeDisplay.innerHTML = '0' + min + ':00'
+  } else {
+    timeDisplay.innerHTML = min + ':00'
+  }
   isStopped = true
   startBtn.innerHTML = 'Start'
   window.clearInterval(interval)
@@ -121,3 +151,18 @@ longBtn.addEventListener('click', () => {
 
 startBtn.addEventListener('click', timer.startStop.bind(timer))
 resetBtn.addEventListener('click', timer.resetTimer.bind(timer))
+
+// on doubleclick, be able to change the time
+// WHY DOES THIS NOT JUST WORK WHEN STOPPED
+if (isStopped) {
+  timeDisplay.addEventListener('dblclick', timer.editTime)
+  // console.log(editText)
+  editText.addEventListener('blur', timer.unfocus.bind(timer))
+  editText.addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
+      timer.unfocus()
+    }
+  })
+}
+
+// ADD STOP/START FUNCTIONALITY WITH SPACE (WATCH OUT FOR BUBBLING)

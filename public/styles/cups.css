@@ -1,8 +1,7 @@
-body{
+body {
   background: url(https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1362&q=80);
-  background-size: cover ;
+  background-size: cover;
   background-position: center;
-  
 }
 nav {
   font-family: 'Source Sans Pro', sans-serif;
@@ -14,15 +13,15 @@ html {
 #main {
   background: rgba(255, 255, 255, 0.21);
   color: white;
-  margin-top: 15%;
+  margin-top: 60%;
   font-family: 'Source Sans Pro', sans-serif;
   text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0 8px 13px rgba(0, 0, 0, 0.1), 0 18px 23px rgba(0, 0, 0, 0.1);
 }
 
 #main h1 {
-  
   font-weight: 100;
 }
+
 #main p {
   font-weight: 100;
 }
@@ -33,6 +32,18 @@ html {
 }
 
 #selecta {
-  background-color: #ffffffb0
+  background-color: #ffffffb0;
 }
-
+.timer-container {
+  height: 300px;
+  width: 100%;
+  text-align: center;
+  margin-top: 40%;
+}
+#time {
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 100;
+  font-size: 8rem;
+  margin: 0 auto;
+}

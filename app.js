@@ -11,7 +11,11 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
 // ======== ROUTES ========
 app.get('/cups', async (req, res) => {
-  res.render('cups', { root: __dirname })
+  res.render('cups', { title: 'Cups' })
+})
+
+app.get('/timer', async (req, res) => {
+  res.render('timer', { title: 'Timer' })
 })
 
 app.listen(3000, () => {

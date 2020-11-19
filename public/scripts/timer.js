@@ -138,16 +138,20 @@ const configureTimer = (min, sec = 0) => {
 
 workBtn.addEventListener('click', () => {
   configureTimer(25)
+  timer.startStop() // dont need .bind() because 'this' acts differently in arrow func
 })
 
 shortBtn.addEventListener('click', () => {
   configureTimer(5)
+  timer.startStop()
 })
 
 longBtn.addEventListener('click', () => {
   configureTimer(10)
+  timer.startStop()
 })
 
+// .bind(timer) means that whenever 'this' is called in the function, it refers to the timer
 startBtn.addEventListener('click', timer.startStop.bind(timer))
 resetBtn.addEventListener('click', timer.resetTimer.bind(timer))
 
@@ -163,3 +167,5 @@ if (isStopped) {
     }
   })
 }
+
+// MAKE TIMER LOOP ROUND TO GO STRAIGHT TO THE BREAK

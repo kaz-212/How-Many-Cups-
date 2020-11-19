@@ -1,0 +1,24 @@
+<% layout('/layouts/boilerplate') %>
+
+<div class="todo-container">
+  <h1>Tasks</h1>
+  <div class="container">
+    <ul id="tasks">
+      <% for (let task of tasks) { %>
+      <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
+        <li class="todo-li">- <%= task.task %></li>
+        <button class="del-btn"><i class="fas fa-clipboard-list"></i></button>
+      </form>
+      <%} %>
+    </ul>
+    <button class="task-btn" id="new-task"><span class="task-btn-txt">New Task</span></button>
+  </div>
+  <div id="form" class="none">
+    <form action="/tasks" method="POST">
+      <input class="input-box" type="text" name="task" id="new-task" />
+      <button class="task-btn"><span class="task-btn-txt">Add Task</span></button>
+    </form>
+  </div>
+</div>
+
+<script src="scripts/todo.js"></script>

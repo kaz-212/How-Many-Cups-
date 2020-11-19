@@ -6,6 +6,9 @@ body {
   background: url(https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1362&q=80);
   background-size: cover;
   background-position: center;
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 100;
 }
 nav {
   font-family: 'Source Sans Pro', sans-serif;
@@ -67,6 +70,14 @@ html {
   border-radius: 39px;
   resize: none;
 }
+.input-box {
+  color: white;
+  background: rgba(255, 255, 255, 0.21);
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 100;
+  border-radius: 11px;
+  width: 40%;
+}
 
 .text-box:focus {
   outline: none;
@@ -112,4 +123,47 @@ button:focus {
   .top-btn {
     margin: 20px 8px;
   }
+}
+
+.todo-container {
+  margin-top: 10vh;
+  margin-left: 5vw;
+}
+
+.del-btn {
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-radius: 50px;
+  width: 2rem;
+  height: 2rem;
+  position: static;
+  text-align: center;
+  padding: 0;
+  transition: all 0.5s;
+}
+
+.del-btn:hover {
+  background-color: rgba(255, 255, 255, 0.21);
+}
+.task-btn {
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-radius: 20px;
+  position: static;
+  padding: 3px;
+  text-align: center;
+  transition: all 0.5s;
+  background-color: rgba(255, 255, 255, 0.075);
+}
+.task-btn-txt {
+  padding: 8px;
+}
+.task-btn:hover {
+  background-color: rgba(255, 255, 255, 0.21);
+}
+
+.todo-li {
+  display: inline;
 }

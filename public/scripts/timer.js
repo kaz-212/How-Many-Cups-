@@ -111,7 +111,6 @@ class Timer {
     if (mins && secs) {
       this.seconds = parseInt(secs[1])
       this.minutes = parseInt(mins[1])
-      console.log(this.seconds)
       timeDisplay.innerHTML = editText.value
     } else {
       timeDisplay.innerHTML = '25:00'
@@ -164,5 +163,3 @@ if (isStopped) {
     }
   })
 }
-
-// ADD STOP/START FUNCTIONALITY WITH SPACE (WATCH OUT FOR BUBBLING)

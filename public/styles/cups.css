@@ -1,3 +1,7 @@
+*:focus {
+  outline: none;
+}
+
 body {
   background: url(https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1362&q=80);
   background-size: cover;
@@ -13,7 +17,7 @@ html {
 #main {
   background: rgba(255, 255, 255, 0.21);
   color: white;
-  margin-top: 60%;
+  margin-top: 20vh;
   font-family: 'Source Sans Pro', sans-serif;
   text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0 8px 13px rgba(0, 0, 0, 0.1), 0 18px 23px rgba(0, 0, 0, 0.1);
 }
@@ -38,14 +42,14 @@ html {
   height: 300px;
   width: 100%;
   text-align: center;
-  margin-top: 40%;
+  margin-top: 20vh;
 }
 #time {
   color: white;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 100;
   font-size: 8rem;
-  margin: 0 auto;
+  margin: 6px auto;
 }
 
 .none {
@@ -60,4 +64,52 @@ html {
   font-weight: 100;
   font-size: 8rem;
   margin: 0 auto;
+  border-radius: 39px;
+  resize: none;
+}
+
+.text-box:focus {
+  outline: none;
+}
+
+.bottom-btn {
+  background-image: linear-gradient(rgba(82, 79, 79, 0.541), rgba(82, 79, 79, 0.541)), url('../coffee.png');
+  background-size: cover;
+  background-position: center;
+  /* border: 1px solid white; */
+  color: white;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin: 30px 20px;
+}
+
+.bottom-btn:hover {
+  background-image: linear-gradient(rgba(3, 3, 3, 0.541), rgba(0, 0, 0, 0.541)), url('../coffee.png');
+}
+
+.top-btn {
+  width: 8rem;
+  background-color: transparent;
+  border: none;
+  color: rgb(139, 127, 127);
+  font-size: 1.5rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 100;
+  margin: 20px 28px;
+  transition: all 0.2s;
+}
+
+.top-btn:hover {
+  color: white;
+}
+
+button:focus {
+  outline: none;
+}
+
+@media (max-width: 597px) {
+  .top-btn {
+    margin: 20px 8px;
+  }
 }

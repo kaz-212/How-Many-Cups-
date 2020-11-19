@@ -1,15 +1,15 @@
 <% layout('/layouts/boilerplate') %>
 
 <div class="timer-container">
-  <button id="work">Work</button>
-  <button id="short">Short Break</button>
-  <button id="long">Long Break</button>
+  <button class="top-btn" id="work">Work</button>
+  <button class="top-btn" id="short">Short Break</button>
+  <button class="top-btn" id="long">Long Break</button>
   <div id="time-box">
     <div id="time">25:00</div>
-    <textarea class="none text-box" id="edit-text"></textarea>
+    <textarea class="none text-box" id="edit-text" rows="1" cols="12"></textarea>
   </div>
-  <button id="start-stop">Start</button>
-  <button id="reset">Reset</button>
+  <button class="bottom-btn" id="start-stop">Start</button>
+  <button class="bottom-btn" id="reset">Reset</button>
 </div>
 <audio id="buzz" src="Buzzer.wav"></audio>
 

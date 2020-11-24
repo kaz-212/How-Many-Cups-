@@ -1,0 +1,14 @@
+<% layout('/layouts/boilerplate') %>
+
+<div class="todo-container">
+  <h1>Welcome to Pomodoro</h1>
+  <div class="container">
+    <button class="task-btn" id="new-task"><span class="task-btn-txt">New Task</span></button>
+  </div>
+  <div id="form" class="none">
+    <form action="/tasks" method="POST">
+      <input class="input-box" type="text" name="task" id="new-task" />
+      <button class="task-btn"><span class="task-btn-txt">Add Task</span></button>
+    </form>
+  </div>
+</div>

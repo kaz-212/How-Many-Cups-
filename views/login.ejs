@@ -1,0 +1,20 @@
+<% layout('/layouts/boilerplate') %>
+
+<div class="container mt-5">
+  <form action="/login" method="post">
+    <h2>Login</h2>
+    <label for="username">username</label>
+    <input type="text" name="username" id="username" placeholder="username" required />
+    <label for="password">password</label>
+    <input type="text" name="password" id="password" placeholder="password" required />
+    <button>Login</button>
+  </form>
+  <form action="/signup" method="post">
+    <h2>Signup</h2>
+    <label for="username">username</label>
+    <input type="text" name="username" id="username" placeholder="username" required />
+    <label for="password">password</label>
+    <input type="text" name="password" id="password" placeholder="password" required />
+    <button>Sign Up</button>
+  </form>
+</div>

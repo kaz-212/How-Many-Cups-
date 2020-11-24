@@ -1,10 +1,16 @@
 <% layout('/layouts/boilerplate') %>
 
 <div class="todo-container">
+  <% if (!user.isGuest) { %> <% if(user.username.slice(-1) === 's') { %>
+  <h1><%= user.username %>' Tasks</h1>
+  <% } else { %>
+  <h1><%= user.username %>'s Tasks</h1>
+  <% } %> <% } else { %>
   <h1>Tasks</h1>
+  <% } %>
   <div class="container">
     <ul id="tasks">
-      <% for (let task of tasks) { %>
+      <% for (let task of user.todos) { %>
       <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
         <li class="todo-li">- <%= task.task %></li>
         <button class="del-btn"><i class="fas fa-clipboard-list"></i></button>

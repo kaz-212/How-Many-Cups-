@@ -13,7 +13,8 @@ const UserSchema = new Schema({
   },
   todos: [
     {
-      type: String
+      type: Schema.Types.ObjectId,
+      ref: 'Task'
     }
   ]
 })

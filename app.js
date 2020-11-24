@@ -93,7 +93,7 @@ app.post('/signup', async (req, res) => {
   const user = new User({ username, password: hashed })
   user.save()
   req.session.userId = user._id
-  res.redirect('/home')
+  res.redirect('/')
 })
 
 app.get('/cups', (req, res) => {

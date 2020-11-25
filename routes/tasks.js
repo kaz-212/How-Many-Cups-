@@ -3,6 +3,8 @@ const router = express.Router()
 const Todo = require('../models/todo')
 const User = require('../models/user')
 
+// TODO: when you click, clipboard...pop up: 'edit or delete'. Add edit functionality
+
 router.get('/', async (req, res) => {
   const id = req.session.userId
   if (!req.session.isGuest) {
@@ -38,7 +40,7 @@ router.delete('/:id', async (req, res) => {
   const { id } = req.params
   const { isGuest, userId } = req.session
   if (!isGuest) {
-    const task = await Todo.findByIdAndDelete(id)
+    await Todo.findByIdAndDelete(id)
     await User.findByIdAndUpdate(userId, { $pull: { todos: id } })
   } else {
     console.log(id)
@@ -47,7 +49,6 @@ router.delete('/:id', async (req, res) => {
         req.session.todos.splice(i, 1)
       }
     }
-    console.log(req.session)
   }
   res.redirect('/tasks')
 })

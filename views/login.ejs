@@ -1,20 +1,55 @@
 <% layout('/layouts/boilerplate') %>
 
-<div class="container mt-5">
-  <form action="/login" method="post">
-    <h2>Login</h2>
-    <label for="username">username</label>
-    <input type="text" name="username" id="username" placeholder="username" required />
-    <label for="password">password</label>
-    <input type="text" name="password" id="password" placeholder="password" required />
-    <button>Login</button>
-  </form>
-  <form action="/signup" method="post">
-    <h2>Signup</h2>
-    <label for="username">username</label>
-    <input type="text" name="username" id="username" placeholder="username" required />
-    <label for="password">password</label>
-    <input type="text" name="password" id="password" placeholder="password" required />
-    <button>Sign Up</button>
-  </form>
+<div class="container">
+  <h1 id="title">Join us</h1>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-9">
+      <div class="jumbotron py-4 main panel">
+        <form class="login-form" action="/login" method="post">
+          <h2>Login</h2>
+          <label class="p-word" for="username">username</label>
+          <input
+            class="input-box input-login"
+            type="text"
+            name="username"
+            id="username"
+            placeholder="  Jimi"
+            required
+          />
+          <label class="p-word" for="password">password</label>
+          <input
+            class="input-box input-login"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="  password123"
+            required
+          />
+          <button class="bottom-btn">Login</button>
+        </form>
+        <form class="login-form" action="/signup" method="post">
+          <h2>Signup</h2>
+          <label class="p-word" for="username">username</label>
+          <input
+            class="input-box input-login"
+            type="text"
+            name="username"
+            id="username"
+            placeholder="  Jimi"
+            required
+          />
+          <label class="p-word" for="password">password</label>
+          <input
+            class="input-box input-login"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="  password123"
+            required
+          />
+          <button class="bottom-btn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

@@ -9,11 +9,8 @@ const TodoSchema = new Schema({
   status: {
     required: true,
     type: String,
-    enum: ['Todo', 'Doing', 'Completed']
-  },
-  order: {
-    type: Number,
-    required: true
+    enum: ['Todo', 'Doing', 'Completed'],
+    default: 'Todo'
   }
 })
 

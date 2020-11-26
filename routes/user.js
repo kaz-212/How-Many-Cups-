@@ -17,7 +17,7 @@ router.post('/login', async (req, res) => {
     if (match) {
       req.session.userId = user._id
       req.session.isGuest = false
-      return res.redirect('/')
+      return res.redirect('/tasks')
     }
     res.redirect('/user/login')
   }

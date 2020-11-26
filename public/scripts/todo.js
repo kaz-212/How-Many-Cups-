@@ -1,6 +1,6 @@
 const newTaskBtn = document.querySelector('#new-task')
 const form = document.querySelector('#form')
-// const axios = require('axios')
+url = 'http://localhost:3000/tasks/'
 
 newTaskBtn.addEventListener('click', () => {
   form.classList.remove('none')
@@ -17,7 +17,18 @@ draggables.forEach(draggable => {
   draggable.addEventListener('dragend', () => {
     draggable.classList.remove('dragging')
     const status = draggable.parentNode.id
-    console.log(draggable.previousSibling.previousSibling.action)
+    const id = draggable.id
+    console.log(id)
+    fetch(url + 'order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        status,
+        id
+      })
+    })
   })
 })
 

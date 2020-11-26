@@ -246,3 +246,23 @@ button:focus {
   left: 60vw;
   font-weight: 400;
 }
+
+#home-container {
+  margin-top: 10%;
+}
+.video {
+  align-self: center;
+}
+
+#vid-div {
+  display: flex;
+  margin-top: 15px;
+  min-width: 60%;
+  justify-content: center;
+  align-items: center;
+}
+
+#home-div {
+  flex-direction: column;
+  padding: 15px;
+}

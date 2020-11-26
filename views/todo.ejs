@@ -20,7 +20,7 @@
         action="/tasks/<%= task._id %>?_method=DELETE"
         method="POST"
       >
-        <li class="todo-li">- <%= task.task %></li>
+        <li class="todo-li"><%= task.task %></li>
         <button class="del-btn"><i class="fas fa-clipboard-list"></i></button>
       </form>
       <% } %> <%} %>
@@ -48,7 +48,7 @@
         action="/tasks/<%= task._id %>?_method=DELETE"
         method="POST"
       >
-        <li class="todo-li">- <%= task.task %></li>
+        <li class="todo-li"><%= task.task %></li>
         <button class="del-btn"><i class="fas fa-clipboard-list"></i></button>
       </form>
       <% } %> <%} %>
@@ -63,7 +63,7 @@
         action="/tasks/<%= task._id %>?_method=DELETE"
         method="POST"
       >
-        <li class="todo-li">- <%= task.task %></li>
+        <li class="todo-li"><%= task.task %></li>
         <button class="del-btn"><i class="fas fa-clipboard-list"></i></button>
       </form>
       <% } %> <%} %>
@@ -76,6 +76,14 @@
       <button class="task-btn"><span class="task-btn-txt">Add Task</span></button>
     </form>
   </div>
+</div>
+
+<div class="instructions">
+  <ul>
+    <li>Click on the <i class="fas fa-clipboard-list"></i> to delete</li>
+    <li>When you are completeing a task, drag to "Doing"</li>
+    <li>Once a task is completed, drag to "Completed"</li>
+  </ul>
 </div>
 
 <script src="scripts/todo.js"></script>

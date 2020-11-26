@@ -60,6 +60,11 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(methodOverride('_method'))
 app.use(isLoggedin)
 
+app.use((req, res, next) => {
+  res.locals.isGuest = req.session.isGuest
+  next()
+})
+
 // ======== ROUTES ========
 app.use('/tasks', tasks)
 app.use('/users', users)

@@ -19,11 +19,12 @@ app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
-const dbUrl = process.env.DB_URL
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/cups'
+const secret = process.env.SECRET || 'devsecret'
 
 const store = new MongoDbStore({
   url: dbUrl,
-  secret: process.env.SECRET,
+  secret,
   touchAfter: 60 * 60 * 24
 })
 
@@ -34,7 +35,7 @@ store.on('error', e => {
 app.use(
   session({
     store,
-    secret: process.env.SECRET,
+    secret,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -97,7 +98,7 @@ app.get('/timer', (req, res) => {
   res.render('timer', { title: 'Timer' })
 })
 
-let port = process.env.PORT || 3000
+const port = process.env.PORT || 3000
 
 app.listen(port, () => {
   console.log('listening on 3000')

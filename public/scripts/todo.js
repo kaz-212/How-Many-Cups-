@@ -1,7 +1,7 @@
 const newTaskBtn = document.querySelector('#new-task')
 const form = document.querySelector('#form')
-url = 'http://localhost:3000/tasks/'
-
+// const url = 'http://localhost:3000/tasks/'
+const url = 'https://how-many-cups.herokuapp.com/tasks/'
 newTaskBtn.addEventListener('click', () => {
   form.classList.remove('none')
   newTaskBtn.classList.add('none')

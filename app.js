@@ -8,6 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 const session = require('express-session')
+const MongoDbStore = require('connect-mongo')(session)
 
 const tasks = require('./routes/tasks')
 const users = require('./routes/user')
@@ -18,8 +19,21 @@ app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
+const dbUrl = process.env.DB_URL
+
+const store = new MongoDbStore({
+  url: dbUrl,
+  secret: process.env.SECRET,
+  touchAfter: 60 * 60 * 24
+})
+
+store.on('error', e => {
+  console.log('SESSION STORE ERROR', e)
+})
+
 app.use(
   session({
+    store,
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
@@ -30,7 +44,6 @@ app.use(
 )
 
 // connect mongoose
-const dbUrl = process.env.DB_URL
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -84,6 +97,8 @@ app.get('/timer', (req, res) => {
   res.render('timer', { title: 'Timer' })
 })
 
-app.listen(3000, () => {
+let port = process.env.PORT || 3000
+
+app.listen(port, () => {
   console.log('listening on 3000')
 })

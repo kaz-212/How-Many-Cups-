@@ -21,6 +21,9 @@ class Timer {
     this.minutes = min
     this.displaySeconds = 0
     this.displayMinutes = 0
+    this.timeElapsed = 0
+    this.startTime = 0
+    this.watcher = 0
     if (this.minutes < 10) {
       timeDisplay.innerHTML = `0${this.minutes}:00`
     } else {
@@ -67,6 +70,10 @@ class Timer {
     this.minutes = this.ultimateTime
     this.displaySeconds = 0
     this.displayMinutes = 0
+    this.timeElapsed = 0
+    this.watcher = 0
+    this.startTime = 0
+
     isStopped = true
     startBtn.innerHTML = 'Start'
     document.title = 'Timer'
@@ -82,9 +89,19 @@ class Timer {
   startStop() {
     if (isStopped) {
       //start the timer by calling interval function
-      this.realTime = Date.now()
+      this.startTime = Date.now()
+      this.timeElapsed = 0
+      // check how much time has elapsed. if it is more than 1 second, start the timer
+      interval = window.setInterval(() => {
+        this.timeElapsed = Math.floor((Date.now() - this.startTime) / 1000) // number of seconds elapsed
+        if (this.timeElapsed != this.watcher) {
+          this.runTimer()
+          this.watcher = this.timeElapsed
+          // console.log('Called')
+        }
+      }, 100)
 
-      interval = window.setInterval(this.runTimer.bind(this), 1000) // call the function every 1000 miliseconds
+      // interval = window.setInterval(this.runTimer.bind(this), 1000) // call the function every 1000 miliseconds - not accurate
       startBtn.innerHTML = 'Stop'
       isStopped = false
     } else {

@@ -82,6 +82,8 @@ class Timer {
   startStop() {
     if (isStopped) {
       //start the timer by calling interval function
+      this.realTime = Date.now()
+
       interval = window.setInterval(this.runTimer.bind(this), 1000) // call the function every 1000 miliseconds
       startBtn.innerHTML = 'Stop'
       isStopped = false

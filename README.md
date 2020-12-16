@@ -1,7 +1,8 @@
 # How-Many-Cups-
 
 
-[Check it out](https://howmanycups.xyz)
+[Check it out](https://www.howmanycups.xyz/)
+
 
 ## Motivation
 A website that I built to help me and my friends study.

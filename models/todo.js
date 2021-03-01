@@ -11,10 +11,6 @@ const TodoSchema = new Schema({
     type: String,
     enum: ['Todo', 'Doing', 'Completed'],
     default: 'Todo'
-  },
-  order: {
-    type: Number,
-    required: true
   }
 })
 

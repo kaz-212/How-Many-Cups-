@@ -12,12 +12,18 @@
     <div id="Todo" class="td-list">
       <h2>Todo</h2>
       <!-- <ul id="tasks"> -->
-      <% let orderNo = 0 %> <% for (let task of user.todos) { %> <% if (task.status === 'Todo') { %>
-      <form class="draggable" draggable="true" action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
-        <li class="todo-li">- <%= task.task %></li>
+      <% for (let task of user.todos) { %> <% if (task.status == 'Todo') { %>
+      <form
+        id="<%= task._id %>"
+        class="draggable"
+        draggable="true"
+        action="/tasks/<%= task._id %>?_method=DELETE"
+        method="POST"
+      >
+        <li class="todo-li"><%= task.task %></li>
         <button class="del-btn"><i class="fas fa-clipboard-list"></i></button>
       </form>
-      <% orderNo ++ } %> <%} %>
+      <% } %> <%} %>
       <!-- </ul> -->
       <!-- <form class="draggable" draggable="true" action="/tasks/hello?_method=DELETE" method="POST">
         <li class="todo-li">-hello</li>
@@ -34,31 +40,50 @@
     </div>
     <div id="Doing" class="td-list">
       <h2>Doing</h2>
-      <% for (let task of user.todos) { %> <% if (task.status === 'Doing') { %>
-      <form class="draggable" draggable="true" action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
-        <li class="todo-li">- <%= task.task %></li>
+      <% for (let task of user.todos) { %> <% if (task.status == 'Doing') { %>
+      <form
+        id="<%= task._id %>"
+        class="draggable"
+        draggable="true"
+        action="/tasks/<%= task._id %>?_method=DELETE"
+        method="POST"
+      >
+        <li class="todo-li"><%= task.task %></li>
         <button class="del-btn"><i class="fas fa-clipboard-list"></i></button>
       </form>
-      <%} %> <%} %>
+      <% } %> <%} %>
     </div>
     <div id="Completed" class="td-list">
       <h2>Completed</h2>
-      <% for (let task of user.todos) { %> <% if (task.status === 'Completed') { %>
-      <form class="draggable" draggable="true" action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
-        <li class="todo-li">- <%= task.task %></li>
+      <% for (let task of user.todos) { %> <% if (task.status == 'Completed') { %>
+      <form
+        id="<%= task._id %>"
+        class="draggable"
+        draggable="true"
+        action="/tasks/<%= task._id %>?_method=DELETE"
+        method="POST"
+      >
+        <li class="todo-li"><%= task.task %></li>
         <button class="del-btn"><i class="fas fa-clipboard-list"></i></button>
       </form>
-      <%} %> <%} %>
+      <% } %> <%} %>
     </div>
+  </div>
+  <button class="task-btn mt-3" id="new-task"><span class="task-btn-txt">New Task</span></button>
+  <div id="form" class="none mt-3">
+    <form action="/tasks" method="POST">
+      <input class="input-box" type="text" name="task" id="new-task" />
+      <button class="task-btn"><span class="task-btn-txt">Add Task</span></button>
+    </form>
   </div>
 </div>
 
-<button class="task-btn" id="new-task"><span class="task-btn-txt">New Task</span></button>
-<div id="form" class="none">
-  <form action="/tasks" method="POST">
-    <input class="input-box" type="text" name="task" id="new-task" />
-    <input type="hidden" name="order" value="<%= orderNo %>" />
-    <button class="task-btn"><span class="task-btn-txt">Add Task</span></button>
-  </form>
+<div class="instructions">
+  <ul>
+    <li>Click on the <i class="fas fa-clipboard-list"></i> to delete</li>
+    <li>When you are completeing a task, drag to "Doing"</li>
+    <li>Once a task is completed, drag to "Completed"</li>
+  </ul>
 </div>
+
 <script src="scripts/todo.js"></script>

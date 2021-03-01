@@ -1,7 +1,7 @@
 const newTaskBtn = document.querySelector('#new-task')
 const form = document.querySelector('#form')
-const url = 'http://localhost:3000/tasks/'
-
+// const url = 'http://localhost:3000/tasks/'
+const url = 'https://how-many-cups.herokuapp.com/tasks/'
 newTaskBtn.addEventListener('click', () => {
   form.classList.remove('none')
   newTaskBtn.classList.add('none')
@@ -17,23 +17,14 @@ draggables.forEach(draggable => {
   draggable.addEventListener('dragend', () => {
     draggable.classList.remove('dragging')
     const status = draggable.parentNode.id
-    console.log(status)
-    const idReg = /(?<=tasks\/)(.*)(?=\?)/
-    const action = draggable.previousSibling.previousSibling.action || -1
-    let followsId = null
-    try {
-      followsId = idReg.exec(action)[0]
-    } catch {
-      followsId = -1
-    }
-    const id = idReg.exec(draggable.action)[0]
+    const id = draggable.id
+    // console.log(id)
     fetch(url + 'order', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        followsId,
         status,
         id
       })

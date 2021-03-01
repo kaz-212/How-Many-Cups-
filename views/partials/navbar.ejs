@@ -17,9 +17,17 @@
       <li class="nav-item">
         <a href="https://img.itch.zone/aW1hZ2UvMTc2MjUvNzYzMDQuanBn/original/TzMBdE.jpg" class="nav-link">YOUTUBE</a>
       </li>
-      <li class="nav-item">
-        <a href="/users/login" class="nav-link">Login</a>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <% if (isGuest) { %>
+      <li class="nav-item ml-auto">
+        <a href="/users/login" class="nav-link">LOGIN/SIGNUP</a>
       </li>
+      <% } else { %>
+      <li class="nav-item ml-auto">
+        <a href="/users/logout" class="nav-link">LOGOUT</a>
+      </li>
+      <% } %>
     </ul>
   </div>
 </nav>

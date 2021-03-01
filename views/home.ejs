@@ -1,14 +1,32 @@
 <% layout('/layouts/boilerplate') %>
 
-<div class="todo-container">
+<div id="home-container" class="container">
   <h1>Welcome to Pomodoro</h1>
-  <div class="container">
-    <button class="task-btn" id="new-task"><span class="task-btn-txt">New Task</span></button>
-  </div>
-  <div id="form" class="none">
-    <form action="/tasks" method="POST">
-      <input class="input-box" type="text" name="task" id="new-task" />
-      <button class="task-btn"><span class="task-btn-txt">Add Task</span></button>
-    </form>
+
+  <div id="home-div" class="td-container">
+    <h2>Work smart...</h2>
+    <p>The famous Pomodoro techhnique encourages you to work with time, rather than against it.</p>
+    <p>
+      Work for 25 minutes uninterupted, take a five minute break, and watch your productivity skyrocket! <br />
+      You can also draw a little cup of coffee on a page every time you complete a 25 minute stint. At the end of the
+      day, click 'CUPS' to see how much work you've done in hours.
+    </p>
+    <p>
+      Why don't you add your todos on our task page? If you log in we'll remember them for tomorrow. If not, dont worry
+      - they'll still be there for a few hours.
+    </p>
+    <p>Click the Logo in the top left to get started.</p>
+
+    <div id="vid-div">
+      <iframe
+        class="video"
+        width="50%"
+        height="400"
+        src="https://www.youtube.com/embed/mNBmG24djoY"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
   </div>
 </div>

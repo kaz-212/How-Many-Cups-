@@ -18,7 +18,7 @@ draggables.forEach(draggable => {
     draggable.classList.remove('dragging')
     const status = draggable.parentNode.id
     const id = draggable.id
-    console.log(id)
+    // console.log(id)
     fetch(url + 'order', {
       method: 'POST',
       headers: {

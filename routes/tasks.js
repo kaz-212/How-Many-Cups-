@@ -33,23 +33,23 @@ router.post('/', async (req, res) => {
       req.session.todos.push({ _id: 0, task, status: 'Todo' })
     }
   }
-  console.log(req.session)
+  // console.log(req.session)
   res.redirect('/tasks')
 })
 
 router.post('/order', async (req, res) => {
   const { status, id } = req.body
-  console.log(status)
+  // console.log(status)
   if (!req.session.isGuest) {
     const todo = await Todo.findByIdAndUpdate(id, { status }, { new: true })
-    console.log(todo)
+    // console.log(todo)
   } else {
     for (let todo of req.session.todos) {
       if (todo._id == id) {
         todo.status = status
       }
     }
-    console.log(req.session.todos)
+    // console.log(req.session.todos)
   }
   res.redirect('/tasks')
 })

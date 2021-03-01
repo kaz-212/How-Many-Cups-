@@ -3,9 +3,11 @@
 }
 
 body {
-  background: url(https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1362&q=80);
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
+    url('https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1362&q=80');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   color: white;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 100;
@@ -171,6 +173,7 @@ button:focus {
 
 .todo-li {
   display: inline;
+  cursor: move;
 }
 
 .input-login {
@@ -212,6 +215,16 @@ button:focus {
   padding-left: 0;
   padding-right: 0;
 }
+
+.login {
+  background-color: rgba(161, 161, 161, 0.21);
+  border-radius: 20px;
+}
+
+input {
+  padding: 1px 10px;
+}
+
 #title {
   position: absolute;
   top: 10%;
